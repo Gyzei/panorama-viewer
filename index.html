@@ -7,6 +7,7 @@
   <meta name="description" content="Lihat suasana kos dari gerbang sampai kamar lewat tur virtual 360° dua lantai.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.css">
   <link rel="stylesheet" href="landing.css">
+  <script src="landing.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
 </head>
 <body>
@@ -36,23 +37,23 @@
 
     <section class="tour" id="tur" aria-labelledby="tour-title">
       <div class="container">
-        <div class="tour-heading">
+        <div class="tour-heading" data-reveal>
           <h2 id="tour-title">Tur virtual 360°</h2>
           <p class="tour-help" id="tour-help">Geser untuk melihat sekeliling. Pilih tanda panah di dalam panorama untuk berpindah tempat.</p>
         </div>
-        <div class="viewer-frame">
+        <div class="viewer-frame" data-reveal>
           <div id="panorama" role="region" aria-label="Penampil panorama 360 derajat" aria-describedby="tour-help"></div>
         </div>
         <dl class="tour-spaces" aria-label="Area yang bisa dijelajahi">
-          <div>
+          <div data-reveal>
             <dt>Area masuk</dt>
             <dd>Jalan, gerbang, dan parkir</dd>
           </div>
-          <div>
+          <div data-reveal>
             <dt>Lantai 1</dt>
             <dd>Kamar, lorong, dan tangga</dd>
           </div>
-          <div>
+          <div data-reveal>
             <dt>Lantai 2</dt>
             <dd>Kamar dan balkon</dd>
           </div>

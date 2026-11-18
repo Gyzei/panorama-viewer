@@ -6,12 +6,12 @@
   --green: #31543b;
   --lime: #dfecb7;
   --line: #dce0d3;
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
 .site-header *, .hero *, .tour-heading *, .tour-spaces *, .site-footer * {
   box-sizing: border-box;
 }
-html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
@@ -77,7 +77,10 @@ p, h1, h2, figure, dl, dd { margin: 0; }
   font-weight: 700;
 }
 .nav-tour:hover, .back-link:hover { text-decoration: underline; text-underline-offset: .3em; }
-.nav-tour span, .back-link span { margin-inline-start: .3rem; }
+.nav-tour span, .back-link span {
+  display: inline-block;
+  margin-inline-start: .3rem;
+}
 
 .hero {
   display: grid;
@@ -86,7 +89,6 @@ p, h1, h2, figure, dl, dd { margin: 0; }
   gap: clamp(1.5rem, 5vw, 5rem);
   padding-block: clamp(2.75rem, 6vw, 5.75rem);
 }
-.hero-copy { animation: rise-in .7s ease-out both; }
 .eyebrow {
   display: flex;
   align-items: center;
@@ -131,9 +133,8 @@ h1 em { display: block; color: var(--green); }
   color: white;
   font-size: .92rem;
   font-weight: 700;
-  transition: background-color .2s, transform .2s;
 }
-.button:hover { background: #243f2b; transform: translateY(-2px); }
+.button:is(:hover, :focus-visible) { background: #243f2b; }
 .button span {
   display: grid;
   width: 2rem;
@@ -151,16 +152,13 @@ h1 em { display: block; color: var(--green); }
   aspect-ratio: 1.14;
   border-radius: 1.3rem;
   background: #bac2ab;
-  animation: rise-in .8s .13s ease-out both;
 }
 .hero-photo img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .65s ease;
 }
-.hero-photo:hover img { transform: scale(1.035); }
 .hero-photo::after {
   position: absolute;
   z-index: 0;
@@ -246,8 +244,8 @@ h2 { font-size: clamp(2.55rem, 5vw, 4.5rem); }
 .footer-content { min-height: 86px; }
 
 @keyframes rise-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; translate: 0 16px; }
+  to { opacity: 1; translate: none; }
 }
 
 @media (max-width: 720px) {
@@ -265,9 +263,49 @@ h2 { font-size: clamp(2.55rem, 5vw, 4.5rem); }
   .footer-content { min-height: 72px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .hero-copy, .hero-photo { animation: none; }
-  .button, .hero-photo img { transition: none; }
-  .button:hover, .hero-photo:hover img { transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+
+  .hero-copy > *, .hero-photo {
+    animation: rise-in .75s var(--motion-ease) var(--intro-delay, 0ms) backwards;
+  }
+  .hero-copy h1 { --intro-delay: 75ms; }
+  .hero-description, .hero-photo { --intro-delay: 150ms; }
+  .hero-copy .button { --intro-delay: 225ms; }
+  .hero-copy .button:focus-visible { animation: none; }
+
+  .reveal-ready [data-reveal]:not(:focus-within) {
+    transition:
+      opacity .65s var(--motion-ease) var(--reveal-delay, 0ms),
+      translate .75s var(--motion-ease) var(--reveal-delay, 0ms);
+  }
+  .reveal-ready [data-reveal]:not(.is-visible, :focus-within) {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  .viewer-frame { --reveal-delay: 65ms; }
+
+  .button {
+    transition: background-color .2s, transform .32s var(--motion-ease);
+  }
+  .button:is(:hover, :focus-visible) { transform: translateY(-2px); }
+  .button:active { transform: scale(.98); }
+  .button span, .nav-tour span, .back-link span {
+    transition: transform .32s var(--motion-ease);
+  }
+  .button:is(:hover, :focus-visible) span { transform: translate(2px, 2px); }
+  .nav-tour:is(:hover, :focus-visible) span { transform: translate(2px, -2px); }
+  .back-link:is(:hover, :focus-visible) span { transform: translateY(-3px); }
+
+  @media (hover: hover) {
+    .hero-photo img { transition: transform .85s var(--motion-ease); }
+    .photo-orbit { transition: transform .6s var(--motion-ease); }
+    .hero-photo:hover img { transform: scale(1.035); }
+    .hero-photo:hover .photo-orbit { transform: rotate(-9deg) scale(1.06); }
+  }
+
+  @media (min-width: 481px) {
+    .tour-spaces > :nth-child(2) { --reveal-delay: 65ms; }
+    .tour-spaces > :nth-child(3) { --reveal-delay: 130ms; }
+  }
 }
