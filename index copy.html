@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contoh Pannellum</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.css">
+  <style>
+    body { margin: 0; font: 16px system-ui, sans-serif; background: #111; color: #fff; }
+    main { max-width: 1100px; margin: 32px auto; padding: 0 20px; }
+    #panorama { width: 100%; height: min(70vh, 600px); min-height: 320px; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Tur Panorama 360 Derajat</h1>
+    <p>Geser panorama dan pilih tanda panah untuk berpindah lokasi.</p>
+    <div id="panorama" aria-label="Penampil gambar panorama 360 derajat"></div>
+  </main>
+  <script>
+    pannellum.viewer('panorama', {
+      default: {
+        firstScene: 'koridor_4',
+        type: 'equirectangular',
+        autoLoad: true,
+        sceneFadeDuration: 500
+      },
+      // shortcut: posisi hotspot dan beberapa hubungan kamar diperkirakan dari foto, sesuaikan setelah verifikasi lokasi.
+      scenes: {
+        jalan: {
+          title: 'Jalan',
+          panorama: 'assets/LT1_DP1.PNG',
+          hotSpots: [
+            { pitch: -8, yaw: 0, type: 'scene', text: 'Depan Gerbang', sceneId: 'depanGerbang' }
+          ]
+        },
+        depanGerbang: {
+          title: 'Depan Gerbang',
+          panorama: 'assets/LT1_DP2.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 90, type: 'scene', text: 'Jalan', sceneId: 'jalan' },
+            { pitch: -5, yaw: 0, type: 'scene', text: 'Parkir', sceneId: 'parkir' }
+          ]
+        },
+        parkir: {
+          title: 'Parkir',
+          panorama: 'assets/LT1_PK.jpeg',
+          hotSpots: [
+            { pitch: 0, yaw: -88, type: 'scene', text: 'Lantai 2', sceneId: 'tangga' },
+            { pitch: -15, yaw: 140, type: 'scene', text: 'Depan Gerbang', sceneId: 'depanGerbang' },
+            { pitch: -5, yaw: 0, type: 'info', text: 'Kamar 1' },
+            { pitch: -5, yaw: -53, type: 'scene', text: 'Kamar 2', sceneId: 'kamar_2' },
+            { pitch: -5, yaw: -30, type: 'info', text: 'Kamar 3' },
+            { pitch: -5, yaw: -315, type: 'scene', text: 'Lorong Kanan', sceneId: 'lorongKanan' },
+            { pitch: -5, yaw: -25, type: 'scene', text: 'Lorong Kiri', sceneId: 'lorongKiri_1' }
+          ]
+        },
+        kamar_2: {
+          title: 'Kamar 2',
+          panorama: 'assets/LT1_K1.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 0, type: 'scene', text: 'Parkir', sceneId: 'parkir' },
+            { pitch: -10, yaw: 124, type: 'info', text: 'Kamar Mandi' }
+          ]
+        },
+        lorongKanan: {
+          title: 'Lorong Kanan',
+          panorama: 'assets/LT1_LR1.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 187, type: 'scene', text: 'Parkir', sceneId: 'parkir' },
+            { pitch: -5, yaw: -18, type: 'info', text: 'Kamar 6' },
+            { pitch: -5, yaw: -1, type: 'info', text: 'Kamar 7' }
+          ]
+        },
+        lorongKiri_1: {
+          title: 'Lorong Kiri',
+          panorama: 'assets/LT1_LR2-1.PNG',
+          hotSpots: [
+            { pitch: -17, yaw: 155, type: 'scene', text: 'Parkir', sceneId: 'parkir' },
+            { pitch: -7, yaw: -1, type: 'scene', text: 'Masuk lebih dalam', sceneId: 'lorongKiri_2' },
+            { pitch: -15, yaw: -47, type: 'info', text: 'Kamar 3' }
+          ]
+        },
+        lorongKiri_2: {
+          title: 'Lorong Kiri',
+          panorama: 'assets/LT1_LR2-2.PNG',
+          hotSpots: [
+            { pitch: -7, yaw: 177, type: 'scene', text: 'Balik ke Parkir', sceneId: 'lorongKiri_1' },
+            { pitch: -15, yaw: -32, type: 'info', text: 'Kamar 4' },
+            { pitch: -10, yaw: 0, type: 'info', text: 'Kamar 5' }
+          ]
+        },
+        tangga: {
+          title: 'Tangga',
+          panorama: 'assets/LT1_TG.PNG',
+          hotSpots: [
+            { pitch: -15, yaw: 17, type: 'scene', text: 'Turun', sceneId: 'parkir' },
+            { pitch: 20, yaw: -4, type: 'scene', text: 'Naik', sceneId: 'koridor_1' }
+          ]
+        },
+        koridor_1: {
+          title: 'Koridor',
+          panorama: 'assets/LT2_BK1.PNG',
+          hotSpots: [
+            { pitch: -37, yaw: -5, type: 'scene', text: 'Turun', sceneId: 'tangga' },
+            { pitch: 0, yaw: 91, type: 'scene', text: 'Koridor', sceneId: 'koridor_2' },
+            { pitch: -10, yaw: 60, type: 'info', text: 'Kamar 8' }
+          ]
+        },
+        koridor_2: {
+          title: 'Koridor',
+          panorama: 'assets/LT2_BK2.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 167, type: 'scene', text: 'Balik', sceneId: 'koridor_1' },
+            { pitch: -5, yaw: -5, type: 'scene', text: 'Lanjut', sceneId: 'koridor_3' },
+            { pitch: -10, yaw: 185, type: 'info', text: 'Kamar 8' },
+            { pitch: -10, yaw: -28, type: 'info', text: 'Kamar 9' }
+          ]
+        },
+        koridor_3: {
+          title: 'Koridor',
+          panorama: 'assets/LT2_BK3.PNG',
+          hotSpots: [
+            { pitch: 0, yaw: 88, type: 'scene', text: 'Balik', sceneId: 'koridor_2' },
+            { pitch: 0, yaw: -94, type: 'scene', text: 'Lanjut', sceneId: 'koridor_4' },
+            { pitch: -5, yaw: -160, type: 'info', text: 'Kamar 10' }
+          ]
+        },
+        koridor_4: {
+          title: 'Koridor',
+          panorama: 'assets/LT2_BK4.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 2, type: 'scene', text: 'Balik', sceneId: 'koridor_3' },
+            { pitch: -10, yaw: -272, type: 'scene', text: 'Kamar 11', sceneId: 'kamar_11' },
+            { pitch: -10, yaw: -90, type: 'scene', text: 'Kamar 12', sceneId: 'kamar_12' }
+          ]
+        },
+        kamar_11: {
+          title: 'Kamar 11',
+          panorama: 'assets/LT2_K1.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 45, type: 'scene', text: 'Koridor', sceneId: 'koridor_4' },
+            { pitch: -5, yaw: -265, type: 'info', text: 'Kamar Mandi' }
+          ]
+        },
+        kamar_12: {
+          title: 'Kamar 12',
+          panorama: 'assets/LT2_K2.PNG',
+          hotSpots: [
+            { pitch: -5, yaw: 140, type: 'scene', text: 'Koridor', sceneId: 'koridor_4' },
+            { pitch: -5, yaw: 180, type: 'info', text: 'Kamar Mandi' }
+          ]
+        }
+      }
+    });
+  </script>
+</body>
+</html>

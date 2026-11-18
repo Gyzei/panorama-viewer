@@ -19,103 +19,116 @@ pannellum.viewer('panorama', {
       panorama: 'assets/LT1_DP2.PNG',
       hotSpots: [
         { pitch: -5, yaw: 90, type: 'scene', text: 'Jalan', sceneId: 'jalan' },
-        { pitch: -5, yaw: 0, type: 'scene', text: 'Parkir', sceneId: 'LT1_PK' },
+        { pitch: -5, yaw: 0, type: 'scene', text: 'Parkir', sceneId: 'parkir' }
       ]
     },
-    LT1_PK: {
-      title: 'Lantai 1 - Parkir',
+    parkir: {
+      title: 'Parkir',
       panorama: 'assets/LT1_PK.jpeg',
       hotSpots: [
-        { pitch: -5, yaw: 160, type: 'scene', text: 'Depan 2', sceneId: 'LT1_DP2' },
-        { pitch: -5, yaw: -65, type: 'scene', text: 'Kamar 1', sceneId: 'LT1_K1' },
-        { pitch: -5, yaw: -100, type: 'scene', text: 'Lorong 1', sceneId: 'LT1_LR1' },
-        { pitch: -5, yaw: -20, type: 'scene', text: 'Lorong 2', sceneId: 'LT1_LR2_1' }
+        { pitch: 0, yaw: -88, type: 'scene', text: 'Lantai 2', sceneId: 'tangga' },
+        { pitch: -15, yaw: 140, type: 'scene', text: 'Depan Gerbang', sceneId: 'depanGerbang' },
+        { pitch: -5, yaw: 0, type: 'info', text: 'Kamar 1' },
+        { pitch: -5, yaw: -53, type: 'scene', text: 'Kamar 2', sceneId: 'kamar_2' },
+        { pitch: -5, yaw: -30, type: 'info', text: 'Kamar 3' },
+        { pitch: -5, yaw: -315, type: 'scene', text: 'Lorong Kanan', sceneId: 'lorongKanan' },
+        { pitch: -5, yaw: -25, type: 'scene', text: 'Lorong Kiri', sceneId: 'lorongKiri_1' }
       ]
     },
-    LT1_K1: {
-      title: 'Lantai 1 - Kamar 1',
+    kamar_2: {
+      title: 'Kamar 2',
       panorama: 'assets/LT1_K1.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 0, type: 'scene', text: 'Parkir', sceneId: 'LT1_PK' }
+        { pitch: -5, yaw: 0, type: 'scene', text: 'Parkir', sceneId: 'parkir' },
+        { pitch: -10, yaw: 124, type: 'info', text: 'Kamar Mandi' }
       ]
     },
-    LT1_LR1: {
-      title: 'Lantai 1 - Lorong 1',
+    lorongKanan: {
+      title: 'Lorong Kanan',
       panorama: 'assets/LT1_LR1.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 175, type: 'scene', text: 'Parkir', sceneId: 'LT1_PK' },
-        { pitch: -5, yaw: 0, type: 'scene', text: 'Tangga', sceneId: 'LT1_TG' }
+        { pitch: -5, yaw: 187, type: 'scene', text: 'Parkir', sceneId: 'parkir' },
+        { pitch: -5, yaw: -18, type: 'info', text: 'Kamar 6' },
+        { pitch: -5, yaw: -1, type: 'info', text: 'Kamar 7' }
       ]
     },
-    LT1_LR2_1: {
-      title: 'Lantai 1 - Lorong 2.1',
+    lorongKiri_1: {
+      title: 'Lorong Kiri',
       panorama: 'assets/LT1_LR2-1.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 145, type: 'scene', text: 'Parkir', sceneId: 'LT1_PK' },
-        { pitch: -5, yaw: 0, type: 'scene', text: 'Lorong 2.2', sceneId: 'LT1_LR2_2' }
+        { pitch: -17, yaw: 155, type: 'scene', text: 'Parkir', sceneId: 'parkir' },
+        { pitch: -7, yaw: -1, type: 'scene', text: 'Masuk lebih dalam', sceneId: 'lorongKiri_2' },
+        { pitch: -15, yaw: -47, type: 'info', text: 'Kamar 3' }
       ]
     },
-    LT1_LR2_2: {
-      title: 'Lantai 1 - Lorong 2.2',
+    lorongKiri_2: {
+      title: 'Lorong Kiri',
       panorama: 'assets/LT1_LR2-2.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 175, type: 'scene', text: 'Lorong 2.1', sceneId: 'LT1_LR2_1' }
+        { pitch: -7, yaw: 177, type: 'scene', text: 'Balik ke Parkir', sceneId: 'lorongKiri_1' },
+        { pitch: -15, yaw: -32, type: 'info', text: 'Kamar 4' },
+        { pitch: -10, yaw: 0, type: 'info', text: 'Kamar 5' }
       ]
     },
-    LT1_TG: {
-      title: 'Lantai 1 - Tangga',
+    tangga: {
+      title: 'Tangga',
       panorama: 'assets/LT1_TG.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 90, type: 'scene', text: 'Depan 2', sceneId: 'LT1_DP2' },
-        { pitch: -5, yaw: -175, type: 'scene', text: 'Lorong 1', sceneId: 'LT1_LR1' },
-        { pitch: 5, yaw: 0, type: 'scene', text: 'Naik ke lantai 2', sceneId: 'LT2_BK1' }
+        { pitch: -15, yaw: 17, type: 'scene', text: 'Turun', sceneId: 'parkir' },
+        { pitch: 20, yaw: -4, type: 'scene', text: 'Naik', sceneId: 'koridor_1' }
       ]
     },
-    LT2_BK1: {
-      title: 'Lantai 2 - Balkon 1',
+    koridor_1: {
+      title: 'Koridor',
       panorama: 'assets/LT2_BK1.PNG',
       hotSpots: [
-        { pitch: -15, yaw: -10, type: 'scene', text: 'Turun ke tangga', sceneId: 'LT1_TG' },
-        { pitch: -5, yaw: 95, type: 'scene', text: 'Balkon 2', sceneId: 'LT2_BK2' }
+        { pitch: -37, yaw: -5, type: 'scene', text: 'Turun', sceneId: 'tangga' },
+        { pitch: 0, yaw: 91, type: 'scene', text: 'Koridor', sceneId: 'koridor_2' },
+        { pitch: -10, yaw: 60, type: 'info', text: 'Kamar 8' }
       ]
     },
-    LT2_BK2: {
-      title: 'Lantai 2 - Balkon 2',
+    koridor_2: {
+      title: 'Koridor',
       panorama: 'assets/LT2_BK2.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 165, type: 'scene', text: 'Balkon 1', sceneId: 'LT2_BK1' },
-        { pitch: -5, yaw: 0, type: 'scene', text: 'Balkon 3', sceneId: 'LT2_BK3' }
+        { pitch: -5, yaw: 167, type: 'scene', text: 'Balik', sceneId: 'koridor_1' },
+        { pitch: -5, yaw: -5, type: 'scene', text: 'Lanjut', sceneId: 'koridor_3' },
+        { pitch: -10, yaw: 185, type: 'info', text: 'Kamar 8' },
+        { pitch: -10, yaw: -28, type: 'info', text: 'Kamar 9' }
       ]
     },
-    LT2_BK3: {
-      title: 'Lantai 2 - Balkon 3',
+    koridor_3: {
+      title: 'Koridor',
       panorama: 'assets/LT2_BK3.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 90, type: 'scene', text: 'Balkon 2', sceneId: 'LT2_BK2' },
-        { pitch: -5, yaw: -90, type: 'scene', text: 'Balkon 4', sceneId: 'LT2_BK4' },
-        { pitch: -5, yaw: -160, type: 'scene', text: 'Kamar 1', sceneId: 'LT2_K1' }
+        { pitch: 0, yaw: 88, type: 'scene', text: 'Balik', sceneId: 'koridor_2' },
+        { pitch: 0, yaw: -94, type: 'scene', text: 'Lanjut', sceneId: 'koridor_4' },
+        { pitch: -5, yaw: -160, type: 'info', text: 'Kamar 10' }
       ]
     },
-    LT2_BK4: {
-      title: 'Lantai 2 - Balkon 4',
+    koridor_4: {
+      title: 'Koridor',
       panorama: 'assets/LT2_BK4.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 0, type: 'scene', text: 'Balkon 3', sceneId: 'LT2_BK3' },
-        { pitch: -5, yaw: -90, type: 'scene', text: 'Kamar 2', sceneId: 'LT2_K2' }
+        { pitch: -5, yaw: 2, type: 'scene', text: 'Balik', sceneId: 'koridor_3' },
+        { pitch: -10, yaw: -272, type: 'scene', text: 'Kamar 11', sceneId: 'kamar_11' },
+        { pitch: -10, yaw: -90, type: 'scene', text: 'Kamar 12', sceneId: 'kamar_12' }
       ]
     },
-    LT2_K1: {
-      title: 'Lantai 2 - Kamar 1',
+    kamar_11: {
+      title: 'Kamar 11',
       panorama: 'assets/LT2_K1.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 50, type: 'scene', text: 'Balkon 3', sceneId: 'LT2_BK3' }
+        { pitch: -5, yaw: 45, type: 'scene', text: 'Koridor', sceneId: 'koridor_4' },
+        { pitch: -5, yaw: -265, type: 'info', text: 'Kamar Mandi' }
       ]
     },
-    LT2_K2: {
-      title: 'Lantai 2 - Kamar 2',
+    kamar_12: {
+      title: 'Kamar 12',
       panorama: 'assets/LT2_K2.PNG',
       hotSpots: [
-        { pitch: -5, yaw: 140, type: 'scene', text: 'Balkon 4', sceneId: 'LT2_BK4' }
+        { pitch: -5, yaw: 140, type: 'scene', text: 'Koridor', sceneId: 'koridor_4' },
+        { pitch: -5, yaw: 180, type: 'info', text: 'Kamar Mandi' }
       ]
     }
   }
