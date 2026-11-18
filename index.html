@@ -3,21 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contoh Pannellum</title>
+  <title>Jelajah Kos | Tur Virtual 360°</title>
+  <meta name="description" content="Lihat suasana kos dari gerbang sampai kamar lewat tur virtual 360° dua lantai.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.css">
-  <style>
-    body { margin: 0; font: 16px system-ui, sans-serif; background: #111; color: #fff; }
-    main { max-width: 1100px; margin: 32px auto; padding: 0 20px; }
-    #panorama { width: 100%; height: min(70vh, 600px); min-height: 320px; }
-  </style>
+  <link rel="stylesheet" href="landing.css">
   <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
 </head>
 <body>
+  <header class="site-header" id="beranda">
+    <nav class="container navigation" aria-label="Navigasi utama">
+      <a class="brand" href="#beranda">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        Jelajah Kos
+      </a>
+      <a class="nav-tour" href="#tur">Tur virtual <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
   <main>
-    <h1>Tur Panorama 360 Derajat</h1>
-    <p>Geser panorama dan pilih tanda panah untuk berpindah lokasi.</p>
-    <div id="panorama" aria-label="Penampil gambar panorama 360 derajat"></div>
+    <section class="container hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">TUR VIRTUAL KOS</p>
+        <h1 id="hero-title">Lihat kosnya <em>lebih dekat.</em></h1>
+        <p class="hero-description">Dari gerbang hingga kamar, kenali suasana kos dua lantai ini sebelum datang langsung.</p>
+        <a class="button" href="#tur">Mulai tur 360° <span aria-hidden="true">↘</span></a>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/kos-cover.jpg" width="1120" height="1010" alt="Tampak depan kos dengan gerbang besi dan area parkir beratap" fetchpriority="high">
+        <figcaption><span class="photo-dot" aria-hidden="true"></span> Tampak depan kos</figcaption>
+        <span class="photo-orbit" aria-hidden="true">360°</span>
+      </figure>
+    </section>
+
+    <section class="tour" id="tur" aria-labelledby="tour-title">
+      <div class="container">
+        <div class="tour-heading">
+          <h2 id="tour-title">Tur virtual 360°</h2>
+          <p class="tour-help" id="tour-help">Geser untuk melihat sekeliling. Pilih tanda panah di dalam panorama untuk berpindah tempat.</p>
+        </div>
+        <div class="viewer-frame">
+          <div id="panorama" role="region" aria-label="Penampil panorama 360 derajat" aria-describedby="tour-help"></div>
+        </div>
+        <dl class="tour-spaces" aria-label="Area yang bisa dijelajahi">
+          <div>
+            <dt>Area masuk</dt>
+            <dd>Jalan, gerbang, dan parkir</dd>
+          </div>
+          <div>
+            <dt>Lantai 1</dt>
+            <dd>Kamar, lorong, dan tangga</dd>
+          </div>
+          <div>
+            <dt>Lantai 2</dt>
+            <dd>Kamar dan balkon</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
   </main>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand" href="#beranda">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        Jelajah Kos
+      </a>
+      <a class="back-link" href="#beranda">Kembali ke atas <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
   <script>
     pannellum.viewer('panorama', {
       default: {
